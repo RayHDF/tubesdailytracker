@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "208764943810",
+    "project_id": "tubes-dailytracker",
+    "storage_bucket": "tubes-dailytracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208764943810:android:6bba333353b8bb855f6a5b",
+        "android_client_info": {
+          "package_name": "com.example.tubes_dailytracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_S5x4HvRttwuimK7YfJs6lK9KroFheRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
