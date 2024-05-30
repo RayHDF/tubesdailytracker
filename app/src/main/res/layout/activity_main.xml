@@ -5,24 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/salmon"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="65dp">
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_marginLeft="32sp"
+        android:layout_marginTop="504dp"
         android:layout_marginRight="32sp"
-        android:layout_marginTop="532dp"
         android:backgroundTint="@color/bluey"
         android:text="Log In"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_marginLeft="32sp"
         android:layout_marginRight="32sp"
         android:backgroundTint="@color/white"
@@ -32,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <TextView
         android:id="@+id/tv_dailytracker"
@@ -46,13 +49,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="0.528" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/hind_siliguri"
         android:gravity="center"
         android:paddingLeft="8sp"
@@ -60,6 +63,15 @@
         android:textColor="#2C406E"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_dailytracker" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        app:srcCompat="@android:drawable/dialog_frame"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="89dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
