@@ -60,7 +60,6 @@
         android:layout_marginRight="12sp"
         android:fontFamily="@font/hind_siliguri"
         android:gravity="center"
-        android:paddingLeft="16sp"
         android:text="Plan what you will do to be more organized for today, tomorrow and beyond"
         android:textColor="#2C406E"
         android:textSize="16sp"
