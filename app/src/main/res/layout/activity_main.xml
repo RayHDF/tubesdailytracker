@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginLeft="32sp"
-        android:layout_marginTop="504dp"
+        android:layout_marginTop="508dp"
         android:layout_marginRight="32sp"
         android:backgroundTint="@color/bluey"
         android:text="Log In"
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.121" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_dailytracker"
@@ -49,16 +49,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:id="@+id/tv_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="12sp"
+        android:layout_marginTop="0sp"
+        android:layout_marginRight="12sp"
         android:fontFamily="@font/hind_siliguri"
         android:gravity="center"
-        android:paddingLeft="8sp"
+        android:paddingLeft="16sp"
         android:text="Plan what you will do to be more organized for today, tomorrow and beyond"
         android:textColor="#2C406E"
         android:textSize="16sp"
@@ -68,10 +70,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_dailytracker" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_login"
         android:layout_width="256dp"
         android:layout_height="256dp"
-        app:srcCompat="@android:drawable/dialog_frame"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="89dp" />
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/dialog_frame" />
 </androidx.constraintlayout.widget.ConstraintLayout>
