@@ -72,11 +72,11 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="Email"
         android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_email"
+        app:layout_constraintBottom_toTopOf="@+id/et_name"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_email"
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="48sp"
         android:layout_marginLeft="32sp"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_email"
+        android:id="@+id/tv_phonenumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
