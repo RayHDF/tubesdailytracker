@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 
-
 class SignupActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     var db = FirebaseFirestore.getInstance()
