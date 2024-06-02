@@ -3,7 +3,13 @@
     <style name="Base.Theme.Tubesdailytracker" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20%</item>
     </style>
+
+
 
     <style name="Theme.Tubesdailytracker" parent="Base.Theme.Tubesdailytracker" />
 </resources>
