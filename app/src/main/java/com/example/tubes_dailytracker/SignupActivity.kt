@@ -10,6 +10,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.hbb20.CountryCodePicker
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -25,6 +26,10 @@ class SignupActivity : AppCompatActivity() {
         val numberInput = findViewById<EditText>(R.id.et_phonenumber)
         val passwordInput = findViewById<EditText>(R.id.et_password)
         val signupButton = findViewById<Button>(R.id.btn_signupconfirm)
+
+        val cPicker = findViewById<CountryCodePicker>(R.id.pick_flag)
+        cPicker.setDefaultCountryUsingNameCode("ID")
+        cPicker.resetToDefaultCountry()
 
         signupButton.setOnClickListener {
             val name = nameInput.text.toString()

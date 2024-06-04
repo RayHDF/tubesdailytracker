@@ -1,4 +1,5 @@
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,19 @@ class MyListAdapter(context: Context, private val resource: Int, private val ite
 
         textView.text = items[position]
 
+        // Set an OnCheckedChangeListener
+        checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                // Checkbox is checked
+                Log.d("MyListAdapter", "Checkbox is checked kms")
+                buttonView.background = context.getDrawable(R.drawable.checkbox_checked)
+            } else {
+                // Checkbox is unchecked
+                Log.d("MyListAdapter", "Checkbox is unchecked")
+                buttonView.background = context.getDrawable(R.drawable.checkbox_background)
+            }
+        }
+
         return view
     }
-}
+    }
