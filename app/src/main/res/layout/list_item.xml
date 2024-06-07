@@ -5,11 +5,13 @@
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:background="@android:color/transparent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -17,9 +19,9 @@
             android:id="@+id/checkBox"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/checkbox_background"
-            android:button="@drawable/checkbox_selector"
-            android:layout_gravity="center_vertical" />
+            android:button="@drawable/checkbox_selector" />
 
         <TextView
             android:id="@+id/textView"
