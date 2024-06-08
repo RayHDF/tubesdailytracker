@@ -8,10 +8,10 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.TextView
 
-class CustomAdapter(context: Context, private val resource: Int, private val items: List<String>)
+class CustomAdapter(context: Context, private val resource: Int, private var items: MutableList<String>)
     : ArrayAdapter<String>(context, resource, items) {
 
-    private val checkBoxStates = BooleanArray(items.size)
+    private val checkBoxStates = MutableList(items.size) { false }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view = convertView ?: LayoutInflater.from(context).inflate(resource, parent, false)
@@ -22,8 +22,16 @@ class CustomAdapter(context: Context, private val resource: Int, private val ite
         val item = getItem(position)
         textView.text = item
 
+        checkBox.isChecked = checkBoxStates[position]
+
         checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
+                // Remove the item from the list
+                items.removeAt(position)
+
+                // Notify the adapter that the data set has changed
+                notifyDataSetChanged()
+
                 buttonView.background = context.getDrawable(R.drawable.checkbox_checked)
             } else {
                 buttonView.background = context.getDrawable(R.drawable.checkbox_background)

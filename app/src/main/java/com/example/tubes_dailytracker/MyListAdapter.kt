@@ -25,6 +25,7 @@ class MyListAdapter(context: Context, private val resource: Int, private val ite
                 // Checkbox is checked
                 Log.d("MyListAdapter", "Checkbox is checked kms")
                 buttonView.background = context.getDrawable(R.drawable.checkbox_checked)
+
             } else {
                 // Checkbox is unchecked
                 Log.d("MyListAdapter", "Checkbox is unchecked")

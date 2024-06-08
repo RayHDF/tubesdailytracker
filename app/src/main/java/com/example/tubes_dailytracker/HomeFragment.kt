@@ -39,7 +39,7 @@ class HomeFragment : Fragment() {
 
         val listView: ListView = view.findViewById(R.id.listView)
 
-        val data = listOf("Item 1", "Item 2", "Item 3", "Item 4")
+        val data = listOf("Item 1", "Item 2", "Item 3", "Item 4").toMutableList()
 
         val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
 
