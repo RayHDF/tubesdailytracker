@@ -39,17 +39,17 @@
         android:layout_height="40dp"
         android:layout_marginHorizontal="36dp"
         android:background="@drawable/rounded_edittext"
-        android:hint="Add task name"
-        android:paddingLeft="10dp"
         android:drawableLeft="@drawable/icon_tasks"
         android:drawablePadding="10dp"
         android:drawableTint="@color/dark_bluey"
+        android:hint="Add task name"
+        android:paddingLeft="10dp"
         android:textColorHint="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_tasknotes"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
-        app:layout_constraintVertical_bias="0.566" />
+        app:layout_constraintVertical_bias="0.064" />
 
     <TextView
         android:id="@+id/tv_notes"
@@ -101,48 +101,54 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="36dp"
-        android:layout_marginTop="280dp"
         android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/icon_calendar"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
         android:hint="Add due date"
         android:paddingLeft="10dp"
         android:textColorHint="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_taskschedule"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintTop_toBottomOf="@+id/et_tasknotes"
+        app:layout_constraintVertical_bias="0.103" />
 
     <EditText
         android:id="@+id/et_taskschedule"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="36dp"
-        android:layout_marginTop="372dp"
         android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/icon_reminder"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
         android:hint="Add Time"
         android:paddingLeft="10dp"
         android:textColorHint="@color/dark_bluey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/et_taskreminder"
+        app:layout_constraintVertical_bias="0.147" />
 
     <EditText
         android:id="@+id/et_tasknotes"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginHorizontal="36dp"
-        android:layout_marginTop="100dp"
         android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/icon_notes"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
         android:hint="Add notes here"
         android:paddingLeft="10dp"
         android:textColorHint="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_taskreminder"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintTop_toBottomOf="@+id/et_taskname"
+        app:layout_constraintVertical_bias="0.101" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
