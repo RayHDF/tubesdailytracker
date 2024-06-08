@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
 
         val data = listOf("Item 1", "Item 2", "Item 3", "Item 4")
 
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, data)
+        val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
 
         listView.adapter = adapter
 
