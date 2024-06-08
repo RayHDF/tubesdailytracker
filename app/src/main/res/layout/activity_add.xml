@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".AddActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_add"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        >
+
+        <TextView
+            android:layout_marginStart="36dp"
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="     Create Task"
+            android:textStyle="bold"
+            android:layout_gravity="start"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/black"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/et_taskname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="36dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Add task name"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/icon_tasks"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_tasknotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
+        app:layout_constraintVertical_bias="0.566" />
+
+    <TextView
+        android:id="@+id/tv_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Notes"
+
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_tasknotes"
+        app:layout_constraintStart_toStartOf="@+id/et_tasknotes" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Reminder"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_taskschedule"
+        app:layout_constraintStart_toStartOf="@+id/et_taskschedule" />
+
+    <TextView
+        android:id="@+id/tv_taskname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Task Name"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_taskname"
+        app:layout_constraintStart_toStartOf="@+id/et_taskname" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Schedule"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_taskreminder"
+        app:layout_constraintStart_toStartOf="@+id/et_taskreminder" />
+
+    <EditText
+        android:id="@+id/et_taskreminder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="280dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Add due date"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_taskschedule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
+        app:layout_constraintVertical_bias="0.276" />
+
+    <EditText
+        android:id="@+id/et_taskschedule"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="372dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Add Time"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/et_tasknotes"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Add notes here"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/et_taskreminder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_add"
+        app:layout_constraintVertical_bias="0.459" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

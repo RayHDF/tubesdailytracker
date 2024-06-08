@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.button.MaterialButton
 import android.content.Intent
+import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,14 @@ class MainActivity : AppCompatActivity() {
 
         btnSignup.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        val imageMain = findViewById<ImageView>(R.id.img_main)
+
+        imageMain.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }

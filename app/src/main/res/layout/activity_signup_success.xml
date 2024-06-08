@@ -20,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
+        app:layout_constraintVertical_bias="0.584" />
 
     <TextView
         android:id="@+id/tv_name_sus"
@@ -67,5 +67,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_sus"
         app:layout_constraintVertical_bias="0.097" />
+
+    <ImageView
+        android:id="@+id/img_signup_sus"
+        android:layout_width="319dp"
+        android:layout_height="349dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_set"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/success" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
