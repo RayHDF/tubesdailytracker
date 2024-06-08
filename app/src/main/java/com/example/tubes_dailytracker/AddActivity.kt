@@ -9,7 +9,7 @@ class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar_add)
+        val toolbar: Toolbar = findViewById(R.id.toolbar_add_task)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }

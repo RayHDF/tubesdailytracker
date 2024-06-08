@@ -2,13 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
-    tools:context=".AddActivity">
+    tools:context=".AddHabitActivity">
+
+    <TextView
+        android:id="@+id/tv_notes_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Reset"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintBottom_toTopOf="@+id/tb_daily_habit"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_add_task"
+        android:id="@+id/toolbar_add_habit"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@android:color/transparent"
@@ -21,7 +33,7 @@
 
         <TextView
             android:layout_marginStart="36dp"
-            android:id="@+id/toolbar_title_task"
+            android:id="@+id/toolbar_title_habit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="     Create Task"
@@ -34,7 +46,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/et_taskname"
+        android:id="@+id/et_habitname"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="36dp"
@@ -48,10 +60,10 @@
         android:textColorHint="@color/dark_bluey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_add_task" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_add_habit" />
 
     <TextView
-        android:id="@+id/tv_notes_task"
+        android:id="@+id/tv_notes_habit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
@@ -59,78 +71,22 @@
         android:text="Notes"
 
         android:textColor="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_notes_task"
-        app:layout_constraintStart_toStartOf="@+id/et_notes_task" />
+        app:layout_constraintBottom_toTopOf="@+id/et_notes_habit"
+        app:layout_constraintStart_toStartOf="@+id/et_notes_habit" />
 
     <TextView
-        android:id="@+id/tv_reminder_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Reminder"
-        android:textColor="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_taskschedule"
-        app:layout_constraintStart_toStartOf="@+id/et_taskschedule" />
-
-    <TextView
-        android:id="@+id/tv_taskname"
+        android:id="@+id/tv_habitname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Task Name"
         android:textColor="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_taskname"
-        app:layout_constraintStart_toStartOf="@+id/et_taskname" />
-
-    <TextView
-        android:id="@+id/tv_schedule_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Schedule"
-        android:textColor="@color/dark_bluey"
-        app:layout_constraintBottom_toTopOf="@+id/et_reminder_task"
-        app:layout_constraintStart_toStartOf="@+id/et_reminder_task" />
+        app:layout_constraintBottom_toTopOf="@+id/et_habitname"
+        app:layout_constraintStart_toStartOf="@+id/et_habitname" />
 
     <EditText
-        android:id="@+id/et_reminder_task"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="36dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_edittext"
-        android:drawableLeft="@drawable/icon_calendar"
-        android:drawablePadding="10dp"
-        android:drawableTint="@color/dark_bluey"
-        android:hint="Add due date"
-        android:paddingLeft="10dp"
-        android:textColorHint="@color/dark_bluey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_notes_task" />
-
-    <EditText
-        android:id="@+id/et_taskschedule"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="36dp"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/rounded_edittext"
-        android:drawableLeft="@drawable/icon_reminder"
-        android:drawablePadding="10dp"
-        android:drawableTint="@color/dark_bluey"
-        android:hint="Add Time"
-        android:paddingLeft="10dp"
-        android:textColorHint="@color/dark_bluey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_reminder_task" />
-
-    <EditText
-        android:id="@+id/et_notes_task"
+        android:id="@+id/et_notes_habit"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginHorizontal="36dp"
@@ -144,14 +100,13 @@
         android:textColorHint="@color/dark_bluey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_taskname" />
+        app:layout_constraintTop_toBottomOf="@+id/et_habitname" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="196dp"
         android:backgroundTint="@color/bluey"
         android:text="Add"
 
@@ -159,9 +114,48 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.888"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_taskschedule"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <ToggleButton
+        android:id="@+id/tb_daily_habit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
+        android:hint="Daily"
+        android:text="ToggleButton"
+        android:textColor="@color/white"
+        android:textOff="Daily"
+        android:textOn="Daily"
+        android:buttonTint="@color/toggle_button_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_notes_habit" />
+
+    <ToggleButton
+        android:id="@+id/tb_weekly_habit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:textColor="@color/white"
+        android:textOff="Weekly"
+        android:buttonTint="@color/toggle_button_color"
+        android:textOn="Weekly"
+        app:layout_constraintEnd_toStartOf="@+id/tb_monthly_habit"
+        app:layout_constraintStart_toEndOf="@+id/tb_daily_habit"
+        app:layout_constraintTop_toBottomOf="@+id/et_notes_habit" />
+
+    <ToggleButton
+        android:id="@+id/tb_monthly_habit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
+        android:textColor="@color/white"
+        android:textOff="Monthly"
+        android:textOn="Monthly"
+        android:buttonTint="@color/toggle_button_color"
+        android:text="ToggleButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_notes_habit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
