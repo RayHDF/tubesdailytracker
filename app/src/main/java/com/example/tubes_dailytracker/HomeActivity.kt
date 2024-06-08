@@ -4,54 +4,52 @@ import MyListAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.example.tubes_dailytracker.databinding.ActivityHomeBinding
 import android.widget.ListAdapter
 import android.widget.ListView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val listView = findViewById<ListView>(R.id.listView)
-        val items = listOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
-        val adapter = MyListAdapter(this, R.layout.list_item, items)
-        listView.adapter = adapter
-
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> {
-                    // Respond to navigation item 1 click
+                R.id.navigation_home -> {
+                    loadFragment(HomeFragment())
                     true
                 }
-                R.id.nav_habit -> {
-                    // Respond to navigation item 2 click
-                    val intent = Intent(this, HabitActivity::class.java)
-                    startActivity(intent)
+                R.id.navigation_habit -> {
+                    loadFragment(HabitFragment())
                     true
                 }
-                R.id.nav_add -> {
-                    // Respond to navigation item 3 click
-                    val intent = Intent(this, AddActivity::class.java)
-                    startActivity(intent)
+                R.id.navigation_calendar -> {
+                    loadFragment(CalendarFragment())
                     true
                 }
-                R.id.nav_calendar -> {
-                    // Respond to navigation item 3 click
-                    val intent = Intent(this, CalendarActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.nav_profile -> {
-                    // Respond to navigation item 3 click
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
+                R.id.navigation_profile -> {
+                    loadFragment(ProfileFragment())
                     true
                 }
                 else -> false
             }
         }
 
+        if (savedInstanceState == null) {
+            binding.bottomNavigation.selectedItemId = R.id.navigation_home
+        }
+
+    }
+
+    private fun loadFragment(fragment : Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }

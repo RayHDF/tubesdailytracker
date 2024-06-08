@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/icon_home"
         android:title="Home" />
     <item
-        android:id="@+id/nav_habit"
+        android:id="@+id/navigation_habit"
         android:icon="@drawable/icon_arrow"
         android:title="Habit" />
     <item
-        android:id="@+id/nav_add"
+        android:id="@+id/navigation_add"
         android:icon="@drawable/icon_add"
-        android:title="Add" />
+        android:title="Add"
+        />
     <item
-        android:id="@+id/nav_calendar"
+        android:id="@+id/navigation_calendar"
         android:icon="@drawable/icon_calendar"
         android:title="Calendar" />
     <item
-        android:id="@+id/nav_profile"
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/icon_profile"
         android:title="Profile" />
-
 </menu>
