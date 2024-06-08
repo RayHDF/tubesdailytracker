@@ -26,6 +26,7 @@ class SignupActivity : AppCompatActivity() {
         val numberInput = findViewById<EditText>(R.id.et_phonenumber)
         val passwordInput = findViewById<EditText>(R.id.et_password)
         val signupButton = findViewById<Button>(R.id.btn_signupconfirm)
+        val alrdhvaccButton = findViewById<Button>(R.id.btn_alrdhvacc)
 
         val cPicker = findViewById<CountryCodePicker>(R.id.pick_flag)
         cPicker.setDefaultCountryUsingNameCode("ID")
@@ -75,6 +76,10 @@ class SignupActivity : AppCompatActivity() {
                         }
                     }
             }
+        }
+        alrdhvaccButton.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

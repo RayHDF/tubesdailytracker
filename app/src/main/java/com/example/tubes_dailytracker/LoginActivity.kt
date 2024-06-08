@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.et_name)
         val password = findViewById<EditText>(R.id.et_password)
         val btnLogin = findViewById<Button>(R.id.btn_login)
+        val dnthvacc = findViewById<Button>(R.id.btn_dnthvacc)
 
         btnLogin.setOnClickListener {
             val emailInput = email.text.toString()
@@ -39,6 +40,11 @@ class LoginActivity : AppCompatActivity() {
 
             Log.d("LoginActivity", "Email is: $emailInput")
             Log.d("LoginActivity", "Password is: $passwordInput")
+        }
+
+        dnthvacc.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -9,6 +9,169 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="65dp">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_dailytracker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/mainimage" />
+
+    <TextView
+        android:id="@+id/tv_dailytracker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Daily Tracker"
+        android:textColor="@color/dark_bluey"
+        android:textSize="48sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Login to continue with Daily Tracker"
+        android:textColor="#2C406E"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dailytracker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Name"
+        android:textSize="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/poppins"
+        android:hint="Enter your name"
+        android:paddingLeft="16sp"
+        android:textColorHint="#8C8C8C"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Email"
+        android:textSize="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/et_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/poppins"
+        android:hint="Enter your email"
+        android:paddingLeft="16sp"
+        android:textColorHint="#8C8C8C"
+        app:layout_constraintTop_toBottomOf="@+id/tv_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Phone Number"
+        android:textSize="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/et_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/pick_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/rounded_edittext"
+        app:ccp_showNameCode="false"
+        app:ccp_showPhoneCode="false"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phonenumber"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_phonenumber"
+        android:layout_width="0dp"
+        android:layout_height="48sp"
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="32sp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/poppins"
+        android:hint="Enter your number"
+        android:paddingLeft="16sp"
+        android:textColorHint="#8C8C8C"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phonenumber"
+        app:layout_constraintStart_toEndOf="@+id/pick_flag"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Password"
+        android:textSize="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/et_phonenumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/poppins"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        android:paddingLeft="16sp"
+        android:textColorHint="#8C8C8C"
+        app:layout_constraintTop_toBottomOf="@+id/tv_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <Button
         android:id="@+id/btn_signupconfirm"
         android:layout_width="match_parent"
@@ -19,180 +182,23 @@
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_alrdhvacc"/>
 
-    <TextView
-        android:id="@+id/tv_dailytracker"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_alrdhvacc"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/hind_siliguri_bold"
-        android:text="Daily Tracker"
-        android:textColor="@color/dark_bluey"
-        android:textSize="48sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginRight="32sp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@android:color/transparent"
+        android:textColor="@color/bluey"
+        android:text="Don't have an account?"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginLeft="12sp"
-        android:layout_marginRight="12sp"
-        android:fontFamily="@font/poppins"
-        android:gravity="center"
-        android:text="Login to continue with Daily Tracker"
-        android:textColor="#2C406E"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_name"
-        android:layout_width="match_parent"
-        android:layout_height="48sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="368dp"
-        android:layout_marginRight="32sp"
-        android:background="@drawable/rounded_edittext"
-        android:fontFamily="@font/poppins"
-        android:hint="Enter your name"
-        android:paddingLeft="16sp"
-        android:textColorHint="#8C8C8C"
-        app:layout_constraintBottom_toTopOf="@+id/et_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Name"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_name"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="48sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="592dp"
-        android:layout_marginRight="32sp"
-        android:background="@drawable/rounded_edittext"
-        android:fontFamily="@font/poppins"
-        android:hint="Enter your password"
-        android:inputType="textPassword"
-        android:paddingLeft="16sp"
-        android:textColorHint="#8C8C8C"
-        app:layout_constraintBottom_toTopOf="@+id/btn_signupconfirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_email"
-        android:layout_width="match_parent"
-        android:layout_height="48sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="440dp"
-        android:layout_marginRight="32sp"
-        android:background="@drawable/rounded_edittext"
-        android:fontFamily="@font/poppins"
-        android:hint="Enter your email"
-        android:paddingLeft="16sp"
-        android:textColorHint="#8C8C8C"
-        app:layout_constraintBottom_toTopOf="@+id/et_phonenumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Email"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_email"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et_phonenumber"
-        android:layout_width="0dp"
-        android:layout_height="48sp"
-        android:layout_marginLeft="8sp"
-        android:layout_marginTop="520dp"
-        android:layout_marginRight="32sp"
-        android:background="@drawable/rounded_edittext"
-        android:fontFamily="@font/poppins"
-        android:hint="Enter your number"
-        android:paddingLeft="16sp"
-        android:textColorHint="#8C8C8C"
-        app:layout_constraintBottom_toTopOf="@+id/et_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
-        app:layout_constraintStart_toEndOf="@+id/pick_flag"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.hbb20.CountryCodePicker
-        android:id="@+id/pick_flag"
-        android:layout_width="wrap_content"
-        android:layout_height="48sp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="520dp"
-        android:background="@drawable/rounded_edittext"
-        app:ccp_showNameCode="false"
-        app:ccp_showPhoneCode="false"
-        app:layout_constraintBottom_toTopOf="@+id/et_password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_phonenumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Phone Number"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_phonenumber"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Password"
-        android:textSize="14dp"
-        app:layout_constraintBottom_toTopOf="@+id/et_password"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="240dp"
-        android:layout_height="215dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_dailytracker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/mainimage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
