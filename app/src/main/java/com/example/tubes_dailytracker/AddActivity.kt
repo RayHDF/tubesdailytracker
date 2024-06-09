@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.DialogFragment
@@ -15,10 +16,19 @@ class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
 
-        val button: Button = findViewById(R.id.btn_taskschedule)
-        button.setOnClickListener {
+        val btn_date  = findViewById<Button>(R.id.btn_taskschedule)
+        val btn_back = findViewById<Button>(R.id.btn_back)
+        val et_taskname = findViewById<EditText>(R.id.et_taskname)
+        val et_taksHabit = findViewById<EditText>(R.id.et_notes_task)
+
+        btn_date.setOnClickListener {
             showDatePickerDialog()
         }
+
+        btn_back.setOnClickListener {
+            finish()
+        }
+
     }
 
     private fun showDatePickerDialog() {
@@ -27,12 +37,10 @@ class AddActivity : AppCompatActivity() {
     }
 
     fun processDatePickerResult(year: Int, month: Int, day: Int) {
-        // The month parameter is zero-based, so add 1
         val monthString = (month + 1).toString()
         val dayString = day.toString()
         val yearString = year.toString()
 
-        // Display the chosen date in a toast message
         val dateMessage = "$monthString/$dayString/$yearString"
         Toast.makeText(this, "Date: $dateMessage", Toast.LENGTH_SHORT).show()
     }

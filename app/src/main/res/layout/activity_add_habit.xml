@@ -25,20 +25,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_taskname"
+        android:id="@+id/tv_habitname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Task Name"
+        android:text="Habit Name"
         android:textColor="@color/dark_bluey"
         app:layout_constraintTop_toBottomOf="@+id/btn_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
-        android:id="@+id/et_taskname"
+        android:id="@+id/et_habitname"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="32dp"
@@ -46,14 +46,14 @@
         android:drawableLeft="@drawable/icon_tasks"
         android:drawablePadding="10dp"
         android:drawableTint="@color/dark_bluey"
-        android:hint="Add task name"
+        android:hint="Add habit name"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="12sp"
         android:paddingLeft="10dp"
         android:textColorHint="@color/dark_bluey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_taskname"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_habitname"/>
 
     <RelativeLayout
         android:id="@+id/notes_relative"
@@ -62,7 +62,7 @@
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_edittext"
-        app:layout_constraintTop_toBottomOf="@+id/et_taskname"
+        app:layout_constraintTop_toBottomOf="@+id/et_habitname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -80,7 +80,7 @@
             />
 
         <EditText
-            android:id="@+id/et_notes_task"
+            android:id="@+id/et_notes_habit"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_below="@id/tv_notes_task"

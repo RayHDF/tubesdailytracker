@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -45,5 +46,30 @@ class AddDailyActivity : AppCompatActivity() {
                 spinner.setSelection(0)
             }
         }
+
+        val btn_date  = findViewById<Button>(R.id.btn_dailyschedule)
+
+        btn_date.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+        val btn_back = findViewById<Button>(R.id.btn_back)
+
+        btn_back.setOnClickListener {
+            finish()
+        }
+    }
+    private fun showDatePickerDialog() {
+        val newFragment = DatePickerFragment()
+        newFragment.show(supportFragmentManager, "datePicker")
+    }
+
+    fun processDatePickerResult(year: Int, month: Int, day: Int) {
+        val monthString = (month + 1).toString()
+        val dayString = day.toString()
+        val yearString = year.toString()
+
+        val dateMessage = "$monthString/$dayString/$yearString"
+        Toast.makeText(this, "Date: $dateMessage", Toast.LENGTH_SHORT).show()
     }
 }

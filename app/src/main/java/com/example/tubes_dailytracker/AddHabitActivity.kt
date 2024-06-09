@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 
 class AddHabitActivity : AppCompatActivity() {
 
@@ -17,12 +20,15 @@ class AddHabitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_add_habit) // Correct layout file
+        setContentView(R.layout.activity_add_habit)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val et_habitName = findViewById<EditText>(R.id.et_habitname)
+        val et_notesHabit = findViewById<EditText>(R.id.et_notes_habit)
+        val btn_back = findViewById<View>(R.id.btn_back)
 
         tbDailyHabit = findViewById(R.id.tb_daily_habit)
         tbWeeklyHabit = findViewById(R.id.tb_weekly_habit)
@@ -31,10 +37,17 @@ class AddHabitActivity : AppCompatActivity() {
         tbDailyHabit.setOnClickListener(toggleButtonClickListener)
         tbWeeklyHabit.setOnClickListener(toggleButtonClickListener)
         tbMonthlyHabit.setOnClickListener(toggleButtonClickListener)
+
+
+
+        btn_back.setOnClickListener {
+            finish()
+        }
+
     }
 
     private val toggleButtonClickListener = View.OnClickListener { v ->
-        tbDailyHabit.isChecked = true
+        tbDailyHabit.isChecked = false
         tbWeeklyHabit.isChecked = false
         tbMonthlyHabit.isChecked = false
 
