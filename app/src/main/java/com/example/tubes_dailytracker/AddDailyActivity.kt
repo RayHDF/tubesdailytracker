@@ -22,7 +22,7 @@ class AddDailyActivity : AppCompatActivity() {
             insets
         }
 
-        val spinnerItems = arrayOf("Daily", "Weekly", "Weekly")
+        val spinnerItems = arrayOf("Daily", "Weekly", "Monthly")
 
         val spinner: Spinner = findViewById(R.id.spin_repeat)
 
