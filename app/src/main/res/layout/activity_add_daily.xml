@@ -5,6 +5,261 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
     tools:context=".AddDailyActivity">
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/icon_back"
+        android:textAllCaps="false"
+        android:text="Create Daily"
+        android:textColor="@color/black"
+        android:padding="0dp"
+        android:fontFamily="@font/poppins_bold"
+        android:drawablePadding="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_taskname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Task Name"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_taskname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/icon_tasks"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
+        android:hint="Add task name"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="12sp"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_taskname"/>
+
+    <RelativeLayout
+        android:id="@+id/notes_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/et_taskname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_notes_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:drawableLeft="@drawable/icon_notes"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/dark_bluey"
+            android:textColor="@color/dark_bluey"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Notes"
+            />
+
+        <EditText
+            android:id="@+id/et_notes_task"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@id/tv_notes_task"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Add Notes Here"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="12sp"
+            android:textColorHint="@color/dark_bluey"
+            android:gravity="top"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="10dp"/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_schedule_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Schedule"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintTop_toBottomOf="@id/notes_relative"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_taskschedule"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/icon_calendar"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
+        android:hint="Add start date"
+        android:paddingLeft="10dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="12sp"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintTop_toBottomOf="@+id/tv_schedule_task"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/repetive_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/et_taskschedule"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/repetitive_left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_repeats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/dark_bluey"
+                android:text="Repeats"/>
+
+            <Spinner
+                android:id="@+id/spin_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                style="@style/style_dropdown"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/repetitive_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_every"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Every"
+                android:textColor="@color/dark_bluey" />
+
+            <LinearLayout
+                android:id="@+id/weeks_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_edittext">
+
+                <EditText
+                    android:id="@+id/et_every"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_edittext"
+                    android:hint="number"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/tv_every_time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="12sp"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:text="Days"
+                    android:textColor="@color/dark_bluey" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_reminder_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Reminder"
+        android:textColor="@color/dark_bluey"
+        app:layout_constraintTop_toBottomOf="@+id/repetive_linear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_reminder_task"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/rounded_edittext"
+        android:drawableLeft="@drawable/icon_reminder"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/dark_bluey"
+        android:hint="Add Time"
+        android:paddingLeft="10dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="12sp"
+        android:textColorHint="@color/dark_bluey"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reminder_task"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="32dp"
+        android:backgroundTint="@color/bluey"
+        android:text="Add"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

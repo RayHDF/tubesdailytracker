@@ -26,10 +26,8 @@ class CustomAdapter(context: Context, private val resource: Int, private var ite
 
         checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                // Remove the item from the list
                 items.removeAt(position)
 
-                // Notify the adapter that the data set has changed
                 notifyDataSetChanged()
 
                 buttonView.background = context.getDrawable(R.drawable.checkbox_checked)

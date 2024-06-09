@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="style_dropdown" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/rounded_dropdown</item>
+        <item name="android:text">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/dark_bluey</item>
+        <item name="android:popupBackground">@android:color/white</item>
+        <item name="android:dropDownSelector">@drawable/spinner_arrow</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+</resources>
