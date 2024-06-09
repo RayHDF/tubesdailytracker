@@ -66,7 +66,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
-                tools:srcCompat="@drawable/boy" />
+                tools:srcCompat="@drawable/boy"/>
 
             <TextView
                 android:id="@+id/tv_counter_home"
@@ -93,8 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/card_home"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ListView
         android:id="@+id/listView"
