@@ -110,20 +110,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
-        android:id="@+id/et_taskschedule"
+    <Button
+        android:id="@+id/btn_taskschedule"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="32dp"
         android:background="@drawable/rounded_edittext"
         android:drawableLeft="@drawable/icon_calendar"
-        android:drawablePadding="10dp"
         android:drawableTint="@color/dark_bluey"
-        android:hint="Add due date"
-        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"
+        android:textAllCaps="false"
+        android:text="Add Due Date"
+        android:textAlignment="viewStart"
+        android:padding="10dp"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="12sp"
-        android:textColorHint="@color/dark_bluey"
+        android:textColor="@color/dark_bluey"
         app:layout_constraintTop_toBottomOf="@+id/tv_schedule_task"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -137,11 +139,11 @@
         android:fontFamily="@font/poppins_bold"
         android:text="Reminder"
         android:textColor="@color/dark_bluey"
-        app:layout_constraintTop_toBottomOf="@+id/et_taskschedule"
+        app:layout_constraintTop_toBottomOf="@+id/btn_taskschedule"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
+    <Button
         android:id="@+id/et_reminder_task"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -150,6 +152,7 @@
         android:drawableLeft="@drawable/icon_reminder"
         android:drawablePadding="10dp"
         android:drawableTint="@color/dark_bluey"
+        android:textAlignment="viewStart"
         android:hint="Add Time"
         android:paddingLeft="10dp"
         android:fontFamily="@font/poppins_semibold"
