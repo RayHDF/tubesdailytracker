@@ -29,13 +29,11 @@
             <TextView
                 android:id="@+id/tv_morning"
                 android:layout_width="wrap_content"
-                android:layout_height="32sp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/poppins"
                 android:text="Good Morning"
                 android:textSize="20sp" />
@@ -47,7 +45,6 @@
                 android:layout_below="@id/tv_morning"
                 android:layout_alignStart="@id/tv_morning"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="-12dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Name"
                 android:textSize="32sp" />
@@ -58,8 +55,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_name_home"
                 android:layout_alignStart="@id/tv_name_home"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="-10dp"
                 android:fontFamily="@font/poppins"
                 android:text="Date"
                 android:textSize="12sp" />
@@ -81,21 +76,19 @@
                 android:layout_below="@+id/tv_date"
                 android:layout_alignStart="@id/tv_date"
                 android:layout_marginTop="1dp"
-                android:layout_toStartOf="@+id/avatar_home"
                 android:fontFamily="@font/poppins"
-                android:text="Habits >" />
+                android:text="Habit"
+                android:drawableEnd="@drawable/icon_forward"/>
 
             <TextView
                 android:id="@+id/tv_counter_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/tv_date"
-                android:layout_alignTop="@+id/avatar_home"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="111dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="0 / 5"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                android:layout_below="@id/textView3"/>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
