@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class AddDailyActivity : AppCompatActivity() {
+class AddDailyActivity : AppCompatActivity(), DatePickerFragment.DatePickerListener {
+    private lateinit var btn_date: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -47,29 +49,36 @@ class AddDailyActivity : AppCompatActivity() {
             }
         }
 
-        val btn_date  = findViewById<Button>(R.id.btn_dailyschedule)
+        btn_date = findViewById(R.id.btn_dailyschedule)
 
         btn_date.setOnClickListener {
             showDatePickerDialog()
         }
 
-        val btn_back = findViewById<Button>(R.id.btn_back)
+        val btnBack = findViewById<Button>(R.id.btn_back)
 
-        btn_back.setOnClickListener {
+        btnBack.setOnClickListener {
             finish()
         }
     }
+
     private fun showDatePickerDialog() {
         val newFragment = DatePickerFragment()
         newFragment.show(supportFragmentManager, "datePicker")
     }
 
-    fun processDatePickerResult(year: Int, month: Int, day: Int) {
+    override fun onDateSet(year: Int, month: Int, day: Int) {
+        processDatePickerResult(year, month, day)
+    }
+
+    private fun processDatePickerResult(year: Int, month: Int, day: Int) {
         val monthString = (month + 1).toString()
         val dayString = day.toString()
         val yearString = year.toString()
 
         val dateMessage = "$monthString/$dayString/$yearString"
         Toast.makeText(this, "Date: $dateMessage", Toast.LENGTH_SHORT).show()
+
+        btn_date.text = dateMessage
     }
 }

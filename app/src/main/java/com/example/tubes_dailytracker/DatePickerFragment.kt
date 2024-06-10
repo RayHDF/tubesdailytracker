@@ -1,4 +1,5 @@
 package com.example.tubes_dailytracker
+
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
@@ -7,6 +8,10 @@ import androidx.fragment.app.DialogFragment
 import java.util.*
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+
+    interface DatePickerListener {
+        fun onDateSet(year: Int, month: Int, day: Int)
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
@@ -18,7 +23,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     }
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
-        val activity = activity as AddActivity?
-        activity?.processDatePickerResult(year, month, day)
+        val activity = activity as? DatePickerListener
+        activity?.onDateSet(year, month, day)
     }
 }

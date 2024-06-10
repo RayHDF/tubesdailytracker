@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CalendarView
 import android.widget.ListView
+import android.widget.Toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,6 +44,14 @@ class CalendarFragment : Fragment() {
         val data = listOf("Item 1", "Item 2", "Item 3", "Item 4").toMutableList()
         val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
         listView.adapter = adapter
+
+        val calendar = view.findViewById<CalendarView>(R.id.cv_tasks)
+
+        calendar.setOnDateChangeListener{ view, year, month, dayOfMonth ->
+            val date = "$dayOfMonth/${month + 1}/$year"
+
+        }
+
 
         return view
     }
