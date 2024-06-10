@@ -8,6 +8,18 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="CalendarDatePickerDialog" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+    </style>
+
+    <style name="MyDatePickerStyle" parent="Widget.AppCompat.DatePicker">
+        <item name="android:datePickerDialogTheme">@style/CalendarDatePickerDialog</item>
+        <item name="android:calendarViewShown">false</item>
+        <item name="android:spinnersShown">true</item>
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:headerBackground">@drawable/calendar_date_selector</item>
+    </style>
+
     <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textColor">@color/black</item>
     </style>

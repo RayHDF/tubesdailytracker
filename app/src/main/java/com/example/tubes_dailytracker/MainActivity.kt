@@ -33,7 +33,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+
+        val btnTest = findViewById<Button>(R.id.btn_test)
+        btnTest.setOnClickListener {
+            val intent = Intent(this, TestActivity::class.java)
+            startActivity(intent)
+        }
     }
+
 
 
 

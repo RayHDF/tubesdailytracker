@@ -16,7 +16,7 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_dropdown"
         android:dateTextAppearance="@style/CalenderViewDateCustomText"
-        android:theme="@style/CalenderViewCustom"
+        android:theme="@style/CalendarDatePickerDialog"
         android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
