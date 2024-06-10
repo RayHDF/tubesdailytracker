@@ -1,15 +1,13 @@
 package com.example.tubes_dailytracker
 
-import android.app.DatePickerDialog
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.DialogFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class AddActivity : AppCompatActivity(), DatePickerFragment.DatePickerListener {
 
@@ -52,5 +50,36 @@ class AddActivity : AppCompatActivity(), DatePickerFragment.DatePickerListener {
         Toast.makeText(this, "Date: $dateMessage", Toast.LENGTH_SHORT).show()
 
         btn_date.text = dateMessage
+
+        val etTaskName = findViewById<EditText>(R.id.et_taskname)
+        val etNotesTask = findViewById<EditText>(R.id.et_notes_task)
+        val btnTaskSchedule = findViewById<Button>(R.id.btn_taskschedule)
+
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+
+        val btnAddTask = findViewById<Button>(R.id.btn_addhabit)
+        btnAddTask.setOnClickListener {
+            val taskName = etTaskName.text.toString()
+            val taskNotes = etNotesTask.text.toString()
+            val taskSchedule = btnTaskSchedule.text.toString()
+
+            val userID = auth.currentUser?.uid ?: "default"
+
+            val task = hashMapOf(
+                "task_name" to taskName,
+                "task_notes" to taskNotes,
+                "task_duedate" to taskSchedule,
+                "userID" to userID
+            )
+
+            db.collection("task")
+                .add(task)
+                .addOnSuccessListener { documentReference ->
+                    Log.d("AddTaskActivity", "DocumentSnapshot added with ID: ${documentReference.id}")
+                    Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+        }
     }
 }

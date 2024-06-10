@@ -1,11 +1,15 @@
 package com.example.tubes_dailytracker
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -21,6 +25,27 @@ class HomeFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
         setHasOptionsMenu(true)  // This is important to enable menu options in the fragment
+
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        val userID = auth.currentUser?.uid ?: "default"
+
+        db.collection("users").document(userID)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val name = document.getString("name")
+                    val tvNameHome = view?.findViewById<TextView>(R.id.tv_name_home)
+                    tvNameHome?.text = name
+                } else {
+                    Log.d("HomeFragment", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("HomeFragment", "get failed with ", exception)
+            }
+
     }
 
     override fun onCreateView(
@@ -30,9 +55,29 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val listView: ListView = view.findViewById(R.id.listView)
-        val data = listOf("Item 1", "Item 2", "Item 3", "Item 4").toMutableList()
-        val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
-        listView.adapter = adapter
+        val data = mutableListOf<String>()
+
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        val userID = auth.currentUser?.uid ?: "default"
+
+        db.collection("daily")
+            .whereEqualTo("userID", userID)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val item = document.getString("task_name") // replace "item" with the actual field name
+                    if (item != null) {
+                        data.add(item)
+                    }
+                }
+                val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
+                listView.adapter = adapter
+            }
+            .addOnFailureListener { exception ->
+                Log.w("HomeFragment", "Error getting documents: ", exception)
+            }
 
         return view
     }
