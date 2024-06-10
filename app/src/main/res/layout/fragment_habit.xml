@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="10 Days"
+                        android:text="0 Days"
                         android:textSize="20sp"
                         android:textColor="@color/dark_bluey"
                         android:drawableTint="@color/dark_bluey"
