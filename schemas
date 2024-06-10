@@ -1,0 +1,32 @@
+Daily:
+ ID		:  ID
+ userID		:  userID (auth)
+ Daily name	:  String
+ Notes Daily	:  String
+ Schedule	:  DateTime
+ Repeats 	:  Category (string)
+ Every		:  Number
+
+
+Task:
+ ID		:  ID
+ userID		:  userID (auth)
+ Task name	:  String
+ Notes Task	:  String
+ Schedule Task	:  DateTime
+
+
+Habit		:
+ ID		:  ID
+ userID		:  userID (auth)
+ Habit name	:  String
+ Notes Habit	:  String
+ Reset Counter	:  Category (string)
+
+users		:
+ userID		:  userID
+ Name		:  String
+ Number		:  Phone Number
+ 
+
+ 
