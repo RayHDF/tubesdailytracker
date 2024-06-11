@@ -1,0 +1,23 @@
+<resources>
+    <style name="AppBaseTheme" parent="android:Theme.Material.Light">
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/dark_bluey</item>
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+        <item name="android:windowBackground">@drawable/rounded_datepickerdialog</item>
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">@color/dark_bluey</item>
+        <item name="android:dayOfWeekBackground">@color/dark_bluey</item>
+        <item name="android:dayOfWeekTextAppearance">@color/dark_bluey</item>
+        <item name="android:headerMonthTextAppearance">@color/dark_bluey</item>
+        <item name="android:headerDayOfMonthTextAppearance">@color/dark_bluey</item>
+        <item name="android:headerYearTextAppearance">@color/dark_bluey</item>
+        <item name="android:yearListItemTextAppearance">@color/dark_bluey</item>
+        <item name="android:yearListSelectorColor">@color/dark_bluey</item>
+        <item name="android:calendarTextColor">@color/dark_bluey</item>
+    </style>
+</resources>
