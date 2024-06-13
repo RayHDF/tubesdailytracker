@@ -75,7 +75,7 @@ class CalendarFragment : Fragment() {
 
             db.collection("task")
                 .whereEqualTo("userID", userID)
-                .whereEqualTo("task_schedule", date)
+                .whereEqualTo("task_duedate", date)
                 .get()
                 .addOnSuccessListener { documents ->
                     data.clear() // clear the old data

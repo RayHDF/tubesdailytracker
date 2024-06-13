@@ -1,16 +1,19 @@
 package com.example.tubes_dailytracker
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.TextView
+import com.google.firebase.firestore.FirebaseFirestore
 
 class CustomAdapter(context: Context, private val resource: Int, private var items: MutableList<String>)
     : ArrayAdapter<String>(context, resource, items) {
 
+    private val db = FirebaseFirestore.getInstance()
     private val checkBoxStates = MutableList(items.size) { false }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -26,9 +29,28 @@ class CustomAdapter(context: Context, private val resource: Int, private var ite
 
         checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                items.removeAt(position)
+                db.collection("task")
+                    .whereEqualTo("task_name", item)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        for (document in documents) {
+                            db.collection("task").document(document.id).delete()
+                                .addOnSuccessListener {
+                                    Log.d("CustomAdapter", "DocumentSnapshot successfully deleted!")
 
-                notifyDataSetChanged()
+                                    items.removeAt(position)
+                                    notifyDataSetChanged()
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.w("CustomAdapter", "Error deleting document", e)
+                                }
+
+                        }
+
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.w("CustomAdapter", "Error getting documents: ", exception)
+                    }
 
                 buttonView.background = context.getDrawable(R.drawable.checkbox_checked)
             } else {

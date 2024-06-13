@@ -1,10 +1,15 @@
 package com.example.tubes_dailytracker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +31,7 @@ class ProfileFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -33,8 +39,78 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        val etEmail = view.findViewById<EditText>(R.id.et_email_profile)
+        val etPhoneNumber = view.findViewById<EditText>(R.id.et_phonenumber)
+        val etFirstName = view.findViewById<EditText>(R.id.et_firstname)
+        val etLastName = view.findViewById<EditText>(R.id.et_lastname)
+        val btnUpdateProfile = view.findViewById<Button>(R.id.btnUpdateProfile)
+
+        val db = FirebaseFirestore.getInstance()
+        val auth = FirebaseAuth.getInstance()
+
+        val userId = auth.currentUser?.uid ?: "default"
+
+        db.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    Log.d("test", "DocumentSnapshot data: ${document.data}")
+
+                    val email = document.getString("email")
+                    val phoneNumber = document.getString("number")
+                    val firstName = document.getString("first_name")
+                    val lastName = document.getString("last_name")
+                    val name = document.getString("name")
+
+                    if (firstName.isNullOrEmpty() && lastName.isNullOrEmpty()) {
+                        etFirstName?.setText(name)
+                    } else {
+                        etFirstName?.setText(firstName)
+                        etLastName?.setText(lastName)
+                    }
+
+                    etEmail.setText(email)
+                    etPhoneNumber.setText(phoneNumber)
+                } else {
+                    Log.d("test", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("test", "get failed with ", exception)
+            }
+
+        btnUpdateProfile.setOnClickListener {
+            val updatedEmail = etEmail.text.toString()
+            val updatedPhoneNumber = etPhoneNumber.text.toString()
+            val updatedFirstName = etFirstName.text.toString()
+            val updatedLastName = etLastName.text.toString()
+
+            val userRef = db.collection("users").document(userId)
+
+            userRef
+                .update(
+                    mapOf(
+                        "email" to updatedEmail,
+                        "number" to updatedPhoneNumber,
+                        "name" to updatedFirstName,
+                        "last_name" to updatedLastName
+                    )
+                )
+                .addOnSuccessListener {
+                    Log.d("test", "DocumentSnapshot successfully updated!")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("test", "Error updating document", e)
+                }
+        }
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return view
     }
 
     companion object {
