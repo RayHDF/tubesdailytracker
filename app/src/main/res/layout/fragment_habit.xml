@@ -55,14 +55,15 @@
                         android:text="checkins"/>
 
                     <TextView
+                        android:id="@+id/tv_checkin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawablePadding="10dp"
+                        android:drawableTint="@color/dark_bluey"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="0 Days"
-                        android:textSize="20sp"
                         android:textColor="@color/dark_bluey"
-                        android:drawableTint="@color/dark_bluey"
+                        android:textSize="20sp"
                         app:drawableStartCompat="@drawable/icon_checkins" />
 
                 </LinearLayout>

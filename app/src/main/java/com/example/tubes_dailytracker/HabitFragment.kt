@@ -1,11 +1,16 @@
 package com.example.tubes_dailytracker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Calendar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +37,45 @@ class HabitFragment : Fragment() {
 
     }
 
+    fun checkIn(userId: String, tvCheckin: TextView) {
+        val db = FirebaseFirestore.getInstance()
+        val currentDate = Calendar.getInstance().time
+
+        db.collection("daily_checkin").document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val lastCheckinDate = document.getDate("last_checkin_date")
+                    val calendar1 = Calendar.getInstance()
+                    val calendar2 = Calendar.getInstance()
+                    calendar1.time = currentDate
+                    calendar2.time = lastCheckinDate
+
+                    // Check if the user is checking in on a new day
+                    if (calendar1.get(Calendar.YEAR) != calendar2.get(Calendar.YEAR) ||
+                        calendar1.get(Calendar.DAY_OF_YEAR) != calendar2.get(Calendar.DAY_OF_YEAR)) {
+                        val checkinCount = document.getLong("checkin_count") ?: 0
+                        document.reference.update("checkin_count", checkinCount + 1, "last_checkin_date", currentDate)
+                        tvCheckin.text = "${checkinCount + 1} Days"
+                    } else {
+                        tvCheckin.text = "${document.getLong("checkin_count")} Days"
+                    }
+                } else {
+                    // Create a new document for the user
+                    val data = hashMapOf(
+                        "user_id" to userId,
+                        "checkin_count" to 1L,
+                        "last_checkin_date" to currentDate
+                    )
+                    db.collection("daily_checkin").document(userId).set(data)
+                    tvCheckin.text = "1 Day"
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("CheckIn", "Error checking in user: ", exception)
+            }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,11 +83,34 @@ class HabitFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_habit, container, false)
 
         val listView: ListView = view.findViewById(R.id.listView)
+        val tvCheckIn: TextView = view.findViewById(R.id.tv_checkin)
 
-        val data = MutableList(5) { "Item ${it + 1}" }
+        val db = FirebaseFirestore.getInstance()
 
-        val adapter = HabitAdapter(requireContext(), R.layout.list_item_habit, data)
-        listView.adapter = adapter
+        val data = mutableListOf<String>()
+
+        val auth = FirebaseAuth.getInstance()
+        val userID = auth.currentUser?.uid ?: "default"
+
+        db.collection("habit")
+            .whereEqualTo("userID", userID)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val habit = document.getString("habit_name") // replace "habit_name" with the actual field name
+
+                    if (habit != null) {
+                        data.add(habit)
+                    }
+                }
+                val adapter = HabitAdapter(requireContext(), R.layout.list_item_habit, data)
+                listView.adapter = adapter
+
+                checkIn(userID, tvCheckIn)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("Habit", "Error getting documents: ", exception)
+            }
 
         return view
     }
