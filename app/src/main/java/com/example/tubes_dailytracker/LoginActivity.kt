@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         auth = Firebase.auth
 
-        val email = findViewById<EditText>(R.id.et_name)
+        val email = findViewById<EditText>(R.id.et_email)
         val password = findViewById<EditText>(R.id.et_password)
         val btnLogin = findViewById<Button>(R.id.btn_login)
         val dnthvacc = findViewById<Button>(R.id.btn_dnthvacc)
@@ -30,6 +30,8 @@ class LoginActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(emailInput, passwordInput)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        Log.d("LoginActivity", "Email is: $emailInput")
+                        Log.d("LoginActivity", "Password is: $passwordInput")
                         val user = auth.currentUser
                         val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
