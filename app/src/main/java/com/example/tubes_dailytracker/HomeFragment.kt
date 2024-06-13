@@ -8,6 +8,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
+import java.time.ZonedDateTime
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -46,6 +50,31 @@ class HomeFragment : Fragment() {
 
     }
 
+    fun updateCounter(tv_counter_home: TextView) {
+        val auth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+        val userID = auth.currentUser?.uid ?: "default"
+
+        db.collection("daily")
+            .whereEqualTo("userID", userID)
+            .get()
+            .addOnSuccessListener { documents ->
+                var total = 0
+                var checked = 0
+                for (document in documents) {
+                    total++
+                    if (document.getBoolean("checked") == true) {
+                        checked++
+                    }
+                }
+                val counterText = "$checked / $total"
+                tv_counter_home.text = counterText
+            }
+            .addOnFailureListener { exception ->
+                Log.w("HomeFragment", "Error getting documents: ", exception)
+            }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,23 +83,41 @@ class HomeFragment : Fragment() {
 
         val listView: ListView = view.findViewById(R.id.listView)
         val data = mutableListOf<String>()
+        val tv_counter_home: TextView = view.findViewById(R.id.tv_counter_home)
 
         val auth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
 
         val userID = auth.currentUser?.uid ?: "default"
 
+        val timeNow = LocalDateTime.now().toInstant(ZoneOffset.UTC).toEpochMilli()
+
+        val nowUtc = ZonedDateTime.now(ZoneId.of("UTC"))
+        val sevenUtc = nowUtc.withHour(7).withMinute(0).withSecond(0).withNano(0)
+        val sevenUtcMillis = sevenUtc.toInstant().toEpochMilli()
+
         db.collection("daily")
             .whereEqualTo("userID", userID)
             .get()
             .addOnSuccessListener { documents ->
+
                 for (document in documents) {
+
+                    if (document.getBoolean("checked") == true) {
+                    }
                     val item = document.getString("task_name") // replace "item" with the actual field name
-                    if (item != null) {
-                        data.add(item)
+                    val lastChecked = document.getLong("last_checked") ?: 0
+
+                    // If the current time is past 7 UTC, compare the last_checked time with 7 UTC
+                    // If the last_checked time is before 7 UTC, add the task to the list
+                    if (timeNow >= sevenUtcMillis && lastChecked < sevenUtcMillis) {
+                        if (item != null) {
+                            data.add(item)
+                        }
                     }
                 }
-                val adapter = CustomHomeAdapter(requireContext(), R.layout.list_item, data)
+                updateCounter(tv_counter_home)
+                val adapter = CustomHomeAdapter(requireContext(), R.layout.list_item, data, this)
                 listView.adapter = adapter
             }
             .addOnFailureListener { exception ->
