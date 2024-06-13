@@ -10,7 +10,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
 
-class CustomAdapter(context: Context, private val resource: Int, private var items: MutableList<String>)
+class CustomCalendarAdapter(context: Context, private val resource: Int, private var items: MutableList<String>)
     : ArrayAdapter<String>(context, resource, items) {
 
     private val db = FirebaseFirestore.getInstance()

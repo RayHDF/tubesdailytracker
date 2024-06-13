@@ -3,10 +3,8 @@ package com.example.tubes_dailytracker
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -72,7 +70,7 @@ class HomeFragment : Fragment() {
                         data.add(item)
                     }
                 }
-                val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
+                val adapter = CustomHomeAdapter(requireContext(), R.layout.list_item, data)
                 listView.adapter = adapter
             }
             .addOnFailureListener { exception ->

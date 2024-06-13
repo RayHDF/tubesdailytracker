@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.CalendarView
 import android.widget.ListView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -60,7 +58,7 @@ class CalendarFragment : Fragment() {
                         data.add(item)
                     }
                 }
-                val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
+                val adapter = CustomCalendarAdapter(requireContext(), R.layout.list_item, data)
                 listView.adapter = adapter
             }
             .addOnFailureListener { exception ->
@@ -86,7 +84,7 @@ class CalendarFragment : Fragment() {
                         }
                     }
                     Log.w("CalendarFragment", "Date: $date")
-                    val adapter = CustomAdapter(requireContext(), R.layout.list_item, data)
+                    val adapter = CustomCalendarAdapter(requireContext(), R.layout.list_item, data)
                     listView.adapter = adapter
                 }
                 .addOnFailureListener { exception ->
