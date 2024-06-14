@@ -1,5 +1,6 @@
 package com.example.tubes_dailytracker
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -47,6 +48,8 @@ class ProfileFragment : Fragment() {
         val etFirstName = view.findViewById<EditText>(R.id.et_firstname)
         val etLastName = view.findViewById<EditText>(R.id.et_lastname)
         val btnUpdateProfile = view.findViewById<Button>(R.id.btnUpdateProfile)
+
+        val btnLogout = view.findViewById<Button>(R.id.btn_logout)
 
         val db = FirebaseFirestore.getInstance()
         val auth = FirebaseAuth.getInstance()
@@ -106,6 +109,12 @@ class ProfileFragment : Fragment() {
                 .addOnFailureListener { e ->
                     Log.w("test", "Error updating document", e)
                 }
+        }
+
+        btnLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
         }
 
 
